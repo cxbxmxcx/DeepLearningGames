@@ -5,12 +5,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 namespace IL.DeepLearningGames
-{
-    [RequireComponent(typeof(Button))]
+{    
     public class InputItem : MonoBehaviour
     {
         public float[] inputs;
         public float label;
+        public RectTransform[] nodes;
         private Button button;
         private List<Perceptron> perceptrons;
 
@@ -22,7 +22,10 @@ namespace IL.DeepLearningGames
         }
         void Start()
         {
-            button.onClick.AddListener(() => UpdatePerceptron());
+            if (button != null)
+            {
+                button.onClick.AddListener(() => UpdatePerceptron());
+            }
         }
 
         private void UpdatePerceptron()

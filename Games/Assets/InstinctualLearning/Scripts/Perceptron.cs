@@ -14,6 +14,7 @@ namespace IL.DeepLearningGames
         public WeightNode[] nodes;
         public InputItem[] inputs;
         private RectTransform canvas;
+        private DenseLayer layer;
         public SummationNode sumNode;
         public ActivationNode actNode;
         public OutputNode outNode;
@@ -22,12 +23,14 @@ namespace IL.DeepLearningGames
         private InputItem currentInput;
         private LineRenderer c;
         private float midY;
+        private LineRenderer[] inputConnectors;
 
         // Start is called before the first frame update
         void Awake()
         {
             nodes = GetComponentsInChildren<WeightNode>();            
             canvas = GetComponent<RectTransform>();
+            layer = GetComponentInParent<DenseLayer>();
         }
 
         private void Start()
@@ -44,6 +47,8 @@ namespace IL.DeepLearningGames
                     input.AddPerceptron(this);
                 }
                 SetInput(inputs[0]);
+
+                inputConnectors = new LineRenderer[inputs.Length];                
             }
         }
 
@@ -96,14 +101,44 @@ namespace IL.DeepLearningGames
 
         public void SetInput(InputItem item)
         {
-            if (item.inputs.Length != nodes.Length - 1) return; //always have one bias node
+            if (item.inputs.Length != nodes.Length - 1 || 
+                inputConnectors == null || 
+                inputConnectors.Length<1) return; //always have one bias node
+
+            foreach(var ir in inputConnectors)
+            {
+                if (ir != null) Destroy(ir);
+            }
+
             var input = 0;
             currentInput = item;
             foreach(var node in nodes)
             {
                 if (node.input.isBias) continue;
-                node.input.SetInput(item.inputs[input++]);
-            }
+                
+                node.input.SetInput(item.inputs[input]);
+
+                if (input < inputConnectors.Length)
+                {
+                    c = Instantiate(connector, node.transform);
+
+                    inputConnectors[input] = c;
+                    var rn = node.GetComponent<RectTransform>();
+                    var crn = ScreenUtils.GetWorldCorners(rn);
+
+                    c.positionCount = 2;
+                    midY = (crn[2].y + crn[3].y) / 2;
+                    c.SetPosition(0, new Vector3(crn[1].x, midY, crn[1].z));
+
+                    var itemNode = item.nodes[input];
+                    var ics = ScreenUtils.GetWorldCorners(itemNode);
+                    midY = (ics[2].y + ics[3].y) / 2;
+                    c.SetPosition(1, new Vector3(ics[2].x, midY, ics[2].z));
+
+                    input++;
+                }
+            }           
+
             UpdatePerceptron();
         }
 
@@ -122,6 +157,11 @@ namespace IL.DeepLearningGames
                 var act = actNode.Activate(sum);
                 var loss = Mathf.Abs(currentInput.label - act);
                 outNode.SetOutput(act,currentInput.label, loss);
+
+                if(layer != null)
+                {
+                    layer.UpdateLayer();
+                }
             }
         }
     }
