@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/InstinctualLearning/Scenes/PerceptronGame.unity
+    guid: ccfc5e8154f509248a64c81e22cdf931
   m_configObjects: {}

@@ -1245,6 +1245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationFunctions:
   - {fileID: 7736702242444973990, guid: 01d96e79ff2097a44a5f3a66cff4847c, type: 3}
+  button: {fileID: 0}
+  perceptron: {fileID: 0}
 --- !u!114 &926464094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1592,7 +1594,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -281.4}
+  m_LocalPosition: {x: -12.2, y: 1, z: -330.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2599,9 +2601,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256ce63a2c1bfad42a9c52c38f1309e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 0}
   outputText: {fileID: 1720309290}
   expectedText: {fileID: 850146715}
   lossText: {fileID: 166749250}
+  isLayer: 0
+  output: 0
+  expected: 0
+  loss: 0
 --- !u!114 &1650096387
 MonoBehaviour:
   m_ObjectHideFlags: 0
