@@ -3601,6 +3601,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationFunctions:
   - {fileID: 7736702242444973990, guid: 01d96e79ff2097a44a5f3a66cff4847c, type: 3}
+  - {fileID: 4213467178668532306, guid: 1909f2dcb70982643b5580a7b83df785, type: 3}
+  - {fileID: 5828147411089448610, guid: 1a474a085f07df34c95802e353854b5f, type: 3}
 --- !u!114 &637998664
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5137,6 +5139,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationFunctions:
   - {fileID: 7736702242444973990, guid: 01d96e79ff2097a44a5f3a66cff4847c, type: 3}
+  - {fileID: 4213467178668532306, guid: 1909f2dcb70982643b5580a7b83df785, type: 3}
+  - {fileID: 5828147411089448610, guid: 1a474a085f07df34c95802e353854b5f, type: 3}
 --- !u!114 &926464094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8190,6 +8194,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationFunctions:
   - {fileID: 7736702242444973990, guid: 01d96e79ff2097a44a5f3a66cff4847c, type: 3}
+  - {fileID: 4213467178668532306, guid: 1909f2dcb70982643b5580a7b83df785, type: 3}
+  - {fileID: 5828147411089448610, guid: 1a474a085f07df34c95802e353854b5f, type: 3}
 --- !u!114 &1610133378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9872,6 +9878,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activationFunctions:
   - {fileID: 7736702242444973990, guid: 01d96e79ff2097a44a5f3a66cff4847c, type: 3}
+  - {fileID: 4213467178668532306, guid: 1909f2dcb70982643b5580a7b83df785, type: 3}
+  - {fileID: 5828147411089448610, guid: 1a474a085f07df34c95802e353854b5f, type: 3}
 --- !u!114 &1764118531
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ namespace IL.DeepLearningGames
     public class ActivationNode : MonoBehaviour
     {        
         public ActivationFunction[] activationFunctions;
+        public Button button;
+        public Perceptron perceptron;
         private Image image;
         private TextMeshProUGUI text;
         private int functionIndex;
@@ -36,11 +38,18 @@ namespace IL.DeepLearningGames
         {
             image = GetComponent<Image>();
             text = GetComponentInChildren<TextMeshProUGUI>();
+            button = GetComponent<Button>();
+            perceptron = GetComponentInParent<Perceptron>();
+            FunctionIndex = -1;
         }
 
         private void Start()
         {
             NextFunction();
+            if(button != null)
+            {
+                button.onClick.AddListener(() => NextFunction());
+            }
         }
 
         public void NextFunction()
@@ -49,6 +58,7 @@ namespace IL.DeepLearningGames
             {
                 FunctionIndex++;
                 SetImage();
+                perceptron.UpdatePerceptron();
             }
         }
 

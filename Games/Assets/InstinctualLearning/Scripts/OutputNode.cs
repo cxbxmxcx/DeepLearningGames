@@ -59,6 +59,7 @@ namespace IL.DeepLearningGames
             {
                 image.color = new Color(output, output, output);
                 outputText.text = "Output\n" + output.ToString("0.00");
+                outputText.color = new Color(1.0f - output, 1.0f - output, 1.0f - output);
             }
         }
 
